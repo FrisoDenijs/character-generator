@@ -21,25 +21,33 @@ const randomNumber = (min, max) => {
     )
 }
 
-const age = randomNumber(ageJson['min'], ageJson['max'])
-const abstractBodyShape = bodyShapeJson['abstract-shapes'][randomNumber(0, bodyShapeJson['abstract-shapes'].length)];
-const bodyShape = bodyShapeJson['shapes'][randomNumber(0, bodyShapeJson['shapes'].length)];
-const faceShape = faceShapeJson['shapes'][randomNumber(0, bodyShapeJson['shapes'].length)];
-const gender = gendersJson['genders'][randomNumber(0, gendersJson['genders'].length)];
-const height = heightsJson['heights'][randomNumber(0, heightsJson['heights'].length)];
-const skinColor = skinColorsJson['skin_colors'][randomNumber(0, skinColorsJson['skin_colors'].length)];
+const generateCharacter = () => {
+    const age = randomNumber(ageJson['min'], ageJson['max'])
+    const abstractBodyShape = bodyShapeJson['abstract-shapes'][randomNumber(0, bodyShapeJson['abstract-shapes'].length)];
+    const bodyShape = bodyShapeJson['shapes'][randomNumber(0, bodyShapeJson['shapes'].length)];
+    const faceShape = faceShapeJson['shapes'][randomNumber(0, bodyShapeJson['shapes'].length)];
+    const gender = gendersJson['genders'][randomNumber(0, gendersJson['genders'].length)];
+    const height = heightsJson['heights'][randomNumber(0, heightsJson['heights'].length)];
+    const skinColor = skinColorsJson['skin_colors'][randomNumber(0, skinColorsJson['skin_colors'].length)];
+    
+    const character = {
+        "age" : age,
+        "abstractBodyShape" : abstractBodyShape,
+        "bodyShape" : bodyShape,
+        "faceShape" : faceShape,
+        "gender" : gender,
+        "height" : height,
+        "skinColor" : skinColor
+    };
 
-// create character
-
-const character = {
-    "age" : age,
-    "abstractBodyShape" : abstractBodyShape,
-    "bodyShape" : bodyShape,
-    "faceShape" : faceShape,
-    "gender" : gender,
-    "height" : height,
-    "skinColor" : skinColor
-};
+    return character;
+}
 
 // output character
-console.log(character);
+let ages = [];
+
+for(let i = 18; i < 70; i++ ){
+    ages.push({age: i, weight: 1});
+}
+
+console.log(ages);
