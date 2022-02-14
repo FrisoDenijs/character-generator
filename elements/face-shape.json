@@ -1,0 +1,10 @@
+{
+    "shapes": [
+        "circle",
+        "ellipse",
+        "inverted-triangle",
+        "rectangle",
+        "square",
+        "triangle"
+    ]
+}
