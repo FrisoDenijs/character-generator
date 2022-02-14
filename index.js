@@ -21,33 +21,48 @@ const randomNumber = (min, max) => {
     )
 }
 
+//based on https://softwareengineering.stackexchange.com/a/150618/171136
+const randomWithWeight = (array) => {
+    let cummulativeWeightArray = []
+    let weightSum = 0;
+
+    array.forEach(element => {
+        weightSum += element.weight;
+        cummulativeWeightArray.push({ "value": element.value, "weight": weightSum });
+    });
+
+    cummulativeWeightArray.sort((first, second) => first.weight > second.weight);
+    console.log(cummulativeWeightArray);
+
+    const randomSelector = randomNumber(0, weightSum)
+    const arrEl = array.find(e => e.weight === randomSelector)
+    console.log(randomSelector);
+    console.log(arrEl);
+
+    return arrEl.value;
+}
+
 const generateCharacter = () => {
-    const age = randomNumber(ageJson['min'], ageJson['max'])
+    const age = randomWithWeight(ageJson);
     const abstractBodyShape = bodyShapeJson['abstract-shapes'][randomNumber(0, bodyShapeJson['abstract-shapes'].length)];
     const bodyShape = bodyShapeJson['shapes'][randomNumber(0, bodyShapeJson['shapes'].length)];
     const faceShape = faceShapeJson['shapes'][randomNumber(0, bodyShapeJson['shapes'].length)];
     const gender = gendersJson['genders'][randomNumber(0, gendersJson['genders'].length)];
     const height = heightsJson['heights'][randomNumber(0, heightsJson['heights'].length)];
     const skinColor = skinColorsJson['skin_colors'][randomNumber(0, skinColorsJson['skin_colors'].length)];
-    
+
     const character = {
-        "age" : age,
-        "abstractBodyShape" : abstractBodyShape,
-        "bodyShape" : bodyShape,
-        "faceShape" : faceShape,
-        "gender" : gender,
-        "height" : height,
-        "skinColor" : skinColor
+        "age": age,
+        "abstractBodyShape": abstractBodyShape,
+        "bodyShape": bodyShape,
+        "faceShape": faceShape,
+        "gender": gender,
+        "height": height,
+        "skinColor": skinColor
     };
 
     return character;
 }
 
 // output character
-let ages = [];
-
-for(let i = 18; i < 70; i++ ){
-    ages.push({age: i, weight: 1});
-}
-
-console.log(ages);
+console.log(generateCharacter());
