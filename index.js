@@ -38,7 +38,7 @@ const randomWithWeight = (array) => {
     });
 
     const randomSelector = randomNumber(0, weightSum);
-    const arrEl = cummulativeWeightArray.find(e => e.weight >= randomSelector);
+    const arrEl = cummulativeWeightArray.find(e => e.weight > randomSelector);
 
     return arrEl.value;
 }
@@ -59,7 +59,7 @@ const generateCharacter = () => {
 }
 
 const characters = [];
-const charAmount = 100;
+const charAmount = 1000;
 
 for (let i = 0; i < charAmount; i++) {
     characters.push(generateCharacter());
