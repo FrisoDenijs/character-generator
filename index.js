@@ -59,7 +59,7 @@ const generateCharacter = () => {
 }
 
 const characters = [];
-const charAmount = 1000;
+const charAmount = 12;
 
 for (let i = 0; i < charAmount; i++) {
     characters.push(generateCharacter());
