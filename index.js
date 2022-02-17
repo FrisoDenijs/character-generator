@@ -59,7 +59,7 @@ const generateCharacter = () => {
 }
 
 const characters = [];
-const charAmount = 5;
+const charAmount = 100;
 
 for (let i = 0; i < charAmount; i++) {
     characters.push(generateCharacter());
@@ -67,6 +67,4 @@ for (let i = 0; i < charAmount; i++) {
 
 
 // output character
-console.log(characters);
-
-fs.writeFileSync('./characters.json', characters);
+fs.writeFileSync('./characters.json', JSON.stringify(characters));

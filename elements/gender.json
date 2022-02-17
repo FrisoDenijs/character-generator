@@ -1,15 +1,15 @@
 [
     {
         "value": "cis man",
-        "weight": 1
+        "weight": 2
     },
     {
         "value": "cis woman",
-        "weight": 1
+        "weight": 3
     },
     {
         "value": "trans man",
-        "weight": 1
+        "weight": 2
     },
     {
         "value": "trans woman",

@@ -9,11 +9,11 @@
     },
     {
         "value": "hourglass",
-        "weight": 1
+        "weight": 4
     },
     {
         "value": "inverted-triangle",
-        "weight": 1
+        "weight": 2
     },
     {
         "value": "pear",
@@ -21,7 +21,7 @@
     },
     {
         "value": "rectangle",
-        "weight": 1
+        "weight": 4
     },
     {
         "value": "square",
@@ -29,6 +29,6 @@
     },
     {
         "value": "triangle",
-        "weight": 1
+        "weight": 2
     }
 ]
