@@ -68,3 +68,5 @@ for (let i = 0; i < charAmount; i++) {
 
 // output character
 console.log(characters);
+
+fs.writeFileSync('./characters.json', characters);
