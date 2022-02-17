@@ -1,8 +1,18 @@
-{
-    "genders": [
-        "cis man",
-        "cis woman",
-        "trans man",
-        "trans woman"
-    ]
-}
+[
+    {
+        "value": "cis man",
+        "weight": 1
+    },
+    {
+        "value": "cis woman",
+        "weight": 1
+    },
+    {
+        "value": "trans man",
+        "weight": 1
+    },
+    {
+        "value": "trans woman",
+        "weight": 1
+    }
+]
