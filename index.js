@@ -17,6 +17,9 @@ elementFiles.forEach((v) => {
     elementJsons[key] = readFileAsJson(`${elementsPath}/${v}`);
 });
 
+const femaleNames = readFileAsJson('./names/female.json');
+const maleNames = readFileAsJson('./names/male.json');
+
 // generate random characteristics
 const randomNumber = (min, max) => {
     return Math.floor(
@@ -40,7 +43,6 @@ const randomWithWeight = (array) => {
     return arrEl.value;
 }
 
-
 const generateCharacter = () => {
     const character = {};
 
@@ -48,8 +50,21 @@ const generateCharacter = () => {
         character[key] = randomWithWeight(elementJsons[key]);
     })
 
+    const name = character["gender"].indexOf("woman") >= 0 ? femaleNames[randomNumber(0, femaleNames.length)] : 
+                                                         maleNames[randomNumber(0, maleNames.length)];
+
+    character["name"] = name;
+
     return character;
 }
 
+const characters = [];
+const charAmount = 5;
+
+for (let i = 0; i < charAmount; i++) {
+    characters.push(generateCharacter());
+}
+
+
 // output character
-console.log(generateCharacter());
+console.log(characters);
