@@ -7,12 +7,15 @@ const readFileAsJson = (path) => {
     return JSON.parse(fileText);
 }
 
-const ageJson = readFileAsJson('./elements/age.json');
-const bodyShapeJson = readFileAsJson('./elements/body-shape.json');
-const faceShapeJson = readFileAsJson('./elements/face-shape.json');
-const gendersJson = readFileAsJson('./elements/genders.json');
-const heightsJson = readFileAsJson('./elements/heights.json');
-const skinColorsJson = readFileAsJson('./elements/skin-colors.json');
+const elementsPath = './elements'
+
+const elementFiles = fs.readdirSync(elementsPath);
+const elementJsons = {}
+
+elementFiles.forEach((v) => {
+    const key = v.split('.')[0];
+    elementJsons[key] = readFileAsJson(`${elementsPath}/${v}`);
+});
 
 // generate random characteristics
 const randomNumber = (min, max) => {
@@ -31,36 +34,19 @@ const randomWithWeight = (array) => {
         cummulativeWeightArray.push({ "value": element.value, "weight": weightSum });
     });
 
-    //cummulativeWeightArray.sort((first, second) => first.weight < second.weight);
-    console.log(cummulativeWeightArray);
-
     const randomSelector = randomNumber(0, weightSum);
     const arrEl = cummulativeWeightArray.find(e => e.weight >= randomSelector);
-    console.log(randomSelector);
-    console.log(arrEl);
 
     return arrEl.value;
 }
 
 
 const generateCharacter = () => {
-    const age = randomWithWeight(ageJson);
-    const abstractBodyShape = bodyShapeJson['abstract-shapes'][randomNumber(0, bodyShapeJson['abstract-shapes'].length)];
-    const bodyShape = bodyShapeJson['shapes'][randomNumber(0, bodyShapeJson['shapes'].length)];
-    const faceShape = faceShapeJson['shapes'][randomNumber(0, bodyShapeJson['shapes'].length)];
-    const gender = randomWithWeight(gendersJson);
-    const height = heightsJson['heights'][randomNumber(0, heightsJson['heights'].length)];
-    const skinColor = skinColorsJson['skin_colors'][randomNumber(0, skinColorsJson['skin_colors'].length)];
+    const character = {};
 
-    const character = {
-        "age": age,
-        "abstractBodyShape": abstractBodyShape,
-        "bodyShape": bodyShape,
-        "faceShape": faceShape,
-        "gender": gender,
-        "height": height,
-        "skinColor": skinColor
-    };
+    Object.keys(elementJsons).forEach((key) => {
+        character[key] = randomWithWeight(elementJsons[key]);
+    })
 
     return character;
 }

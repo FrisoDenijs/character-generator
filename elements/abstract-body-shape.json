@@ -1,14 +1,22 @@
 [
     {
-        "value": "circle",
+        "value": "apple",
         "weight": 1
     },
     {
-        "value": "ellipse",
+        "value": "diamond",
+        "weight": 1
+    },
+    {
+        "value": "hourglass",
         "weight": 1
     },
     {
         "value": "inverted-triangle",
+        "weight": 1
+    },
+    {
+        "value": "pear",
         "weight": 1
     },
     {

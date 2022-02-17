@@ -1,17 +1,14 @@
-{
-    "abstract-shapes": [
-        "apple",
-        "diamond",
-        "hourglass",
-        "inverted-triangle",
-        "pear",
-        "rectangle",
-        "square",
-        "triangle"
-    ],
-    "shapes": [
-        "fat",
-        "muscular",
-        "skinny"
-    ]
-}
+[
+    {
+        "value": "fat",
+        "weight": 1
+    },
+    {
+        "value": "muscular",
+        "weight": 1
+    },
+    {
+        "value": "skinny",
+        "weight": 1
+    }
+]
