@@ -1,11 +1,11 @@
 [
     {
         "value": "circle",
-        "weight": 2
+        "weight": 1
     },
     {
         "value": "ellipse",
-        "weight": 4
+        "weight": 1
     },
     {
         "value": "inverted-triangle",
@@ -13,11 +13,11 @@
     },
     {
         "value": "rectangle",
-        "weight": 4
+        "weight": 1
     },
     {
         "value": "square",
-        "weight": 2
+        "weight": 1
     },
     {
         "value": "triangle",
