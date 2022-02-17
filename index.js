@@ -1,6 +1,5 @@
 // get jsons
 const fs = require('fs');
-//const random = require('./random');
 
 const readFileAsJson = (path) => {
     var fileText = fs.readFileSync(path);
@@ -19,6 +18,8 @@ elementFiles.forEach((v) => {
 
 const femaleNames = readFileAsJson('./names/female.json');
 const maleNames = readFileAsJson('./names/male.json');
+
+const skinTones = readFileAsJson('./colors/skin-tones.json');
 
 // generate random characteristics
 const randomNumber = (min, max) => {
@@ -54,6 +55,7 @@ const generateCharacter = () => {
                                                          maleNames[randomNumber(0, maleNames.length)];
 
     character["name"] = name;
+    character["skin-hex"] = skinTones[character["skin-tone"]];
 
     return character;
 }
